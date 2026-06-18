@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kineviz — See the connections that matter</title>
+<meta name="description" content="GraphXR reveals the relationships hidden in your data — from counter-terrorism to medicine, fraud to journalism. A visual platform that connects humans with complex data." />
+<meta name="theme-color" content="#0a0b0f" />
+<meta property="og:title" content="Kineviz — See the connections that matter" />
+<meta property="og:description" content="GraphXR reveals the relationships hidden in your data so you can make better decisions, faster." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0f'/%3E%3Ccircle cx='9' cy='10' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='23' cy='13' r='2.4' fill='%23fbbf24'/%3E%3Ccircle cx='15' cy='23' r='2.4' fill='%232dd4bf'/%3E%3Cpath d='M9 10 L23 13 M9 10 L15 23 M23 13 L15 23' stroke='%23ffffff' stroke-opacity='.5' stroke-width='1'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Kineviz home">
+    <svg class="nav__mark" width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="9" cy="10" r="3.2" fill="#8b5cf6"/>
+      <circle cx="23" cy="13" r="2.6" fill="#fbbf24"/>
+      <circle cx="15" cy="23" r="2.6" fill="#2dd4bf"/>
+      <path d="M9 10 L23 13 M9 10 L15 23 M23 13 L15 23" stroke="currentColor" stroke-opacity=".55" stroke-width="1.1"/>
+    </svg>
+    <span class="nav__word">KINEVIZ</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#product">GraphXR</a>
+    <a href="#stories">Case Studies</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#about">Company</a>
+  </nav>
+  <a href="#contact" class="btn btn--sm">Try it out</a>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero__canvas" id="graphCanvas" aria-hidden="true"></canvas>
+    <div class="hero__veil"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow reveal">GraphXR Explorer · Visual graph intelligence</p>
+      <h1 class="hero__title">
+        <span class="reveal" style="--d:.05s">See the connections</span>
+        <span class="reveal hero__accent" style="--d:.15s">that matter</span>
+      </h1>
+      <p class="hero__lede reveal" style="--d:.3s">
+        Your data already holds the answers. GraphXR reveals the relationships
+        between them — so you can make better decisions, faster.
+      </p>
+      <div class="hero__cta reveal" style="--d:.45s">
+        <a href="#contact" class="btn">Try it out</a>
+        <a href="#stories" class="btn btn--ghost">See the stories ↓</a>
+      </div>
+    </div>
+    <div class="hero__scrollcue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- PROBLEM / PREMISE -->
+  <section class="premise" id="premise">
+    <div class="premise__sticky">
+      <p class="premise__line">
+        <span class="word" data-word>Most</span>
+        <span class="word" data-word>data</span>
+        <span class="word" data-word>is</span>
+        <span class="word" data-word>stored</span>
+        <span class="word" data-word>as</span>
+        <span class="word" data-word>rows.</span>
+        <br/>
+        <span class="word premise__strong" data-word>But</span>
+        <span class="word premise__strong" data-word>meaning</span>
+        <span class="word premise__strong" data-word>lives</span>
+        <span class="word premise__strong" data-word>in</span>
+        <span class="word premise__strong" data-word>the</span>
+        <span class="word premise__strong" data-word>connections.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT REVEAL -->
+  <section class="product" id="product">
+    <div class="product__grid">
+      <div class="product__copy reveal-up">
+        <p class="kicker">Human-centered intelligence</p>
+        <h2>A visual platform for complex connections</h2>
+        <p class="lead">
+          GraphXR lets analysts collect, expand, and explore relationships in data —
+          leveraging AI to surface hidden patterns and give stakeholders the insight
+          they need to act.
+        </p>
+        <ul class="product__feats">
+          <li data-feat><strong>Explore</strong> billions of relationships interactively in 3D.</li>
+          <li data-feat><strong>Expand</strong> from any node into the surrounding network.</li>
+          <li data-feat><strong>Integrate</strong> Neo4j, BigQuery, Spanner, and more.</li>
+          <li data-feat><strong>Augment</strong> investigations with AI-assisted analysis.</li>
+        </ul>
+      </div>
+      <div class="product__viz reveal-up" style="--d:.15s">
+        <div class="vizcard">
+          <div class="vizcard__bar"><span></span><span></span><span></span></div>
+          <canvas id="miniGraph" class="vizcard__canvas" aria-hidden="true"></canvas>
+          <div class="vizcard__caption">Live force layout · drag-free preview</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT STRIP -->
+  <section class="stats" id="stats" aria-label="By the numbers">
+    <div class="stat"><span class="stat__num" data-count="40" data-suffix="M">0</span><span class="stat__label">events / day analyzed in real time</span></div>
+    <div class="stat"><span class="stat__num" data-count="3" data-suffix=" min">0</span><span class="stat__label">to do what once took 3 days</span></div>
+    <div class="stat"><span class="stat__num" data-count="2015" data-plain="1">0</span><span class="stat__label">building graph intelligence since</span></div>
+    <div class="stat"><span class="stat__num" data-count="100" data-suffix="+">0</span><span class="stat__label">organizations connecting their data</span></div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories" id="stories">
+    <div class="stories__head reveal-up">
+      <p class="kicker">Case studies</p>
+      <h2>Four ways a graph changed the outcome</h2>
+      <p class="lead">From counter-terrorism to medicine, journalism to manufacturing —
+        scroll through real investigations powered by GraphXR.</p>
+    </div>
+
+    <!-- Story 1 -->
+    <article class="story" id="story-1" data-accent="#8b5cf6">
+      <div class="story__visual">
+        <div class="story__stage" data-stage="network"></div>
+      </div>
+      <div class="story__copy">
+        <span class="story__index">01</span>
+        <p class="story__tag">Law Enforcement</p>
+        <h3>Deplatforming an extremist network — all at once</h3>
+        <p>A multinational agency found whack-a-mole useless against extremist
+          recruiters on social media. Ban one account, three more appeared.</p>
+        <p>By mapping the <strong>entire affiliated network</strong> in GraphXR, they
+          identified every connected account — and deplatformed the operation
+          simultaneously, before it could regrow.</p>
+      </div>
+    </article>
+
+    <!-- Story 2 -->
+    <article class="story story--alt" id="story-2" data-accent="#2dd4bf">
+      <div class="story__visual">
+        <div class="story__stage" data-stage="geo"></div>
+      </div>
+      <div class="story__copy">
+        <span class="story__index">02</span>
+        <p class="story__tag">Dutch National Police</p>
+        <h3>Turning OSINT into a map of a drug operation</h3>
+        <p>Investigators were drowning in open-source intelligence — locations,
+          timestamps, names — with no way to see the shape of it.</p>
+        <p>GraphXR transformed the data into <strong>dynamic geospatial and
+          time-series views</strong>, revealing unexpected patterns in illegal
+          drug production that traditional analysis missed.</p>
+      </div>
+    </article>
+
+    <!-- Story 3 -->
+    <article class="story" id="story-3" data-accent="#fbbf24">
+      <div class="story__visual">
+        <div class="story__stage" data-stage="stream"></div>
+      </div>
+      <div class="story__copy">
+        <span class="story__index">03</span>
+        <p class="story__tag">Gaming Intelligence</p>
+        <h3>Catching collusion in 40 million events a day</h3>
+        <p>An online gaming platform's BI tools buckled under the volume — missing
+          the subtle signatures of collusion and fraud.</p>
+        <p>A real-time detection system paired with graph analytics let the team
+          <strong>spot evolving threats as they formed</strong>, and act before the
+          damage was done.</p>
+      </div>
+    </article>
+
+    <!-- Story 4 -->
+    <article class="story story--alt" id="story-4" data-accent="#f472b6">
+      <div class="story__visual">
+        <div class="story__stage" data-stage="ring"></div>
+      </div>
+      <div class="story__copy">
+        <span class="story__index">04</span>
+        <p class="story__tag">Integrity &amp; Regulation</p>
+        <h3>Exposing a betting ring, with confidence</h3>
+        <p>A horse-racing regulator's small team needed to expose criminal networks
+          fast — without sacrificing accuracy.</p>
+        <p>With GraphXR they traced collusion across accounts and bets, building a
+          workflow that turned <strong>days of manual review into minutes</strong>
+          of confident analysis.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- QUOTE MOMENT -->
+  <section class="quote" id="quote">
+    <blockquote class="quote__text reveal-up">
+      “You just enabled us to do in <em>3 minutes</em> what used to take us
+      <em>3 days</em>.”
+    </blockquote>
+    <p class="quote__cite reveal-up" style="--d:.1s">— Manager, Betting &amp; Intelligence Unit</p>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="solutions" id="solutions">
+    <div class="solutions__head reveal-up">
+      <p class="kicker">Solutions</p>
+      <h2>One platform, many frontlines</h2>
+    </div>
+    <div class="solutions__grid">
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#8b5cf6"></span><h4>Anti-Fraud</h4><p>Surface fraud rings and money trails hidden across transactions.</p></a>
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#fbbf24"></span><h4>Gaming Intelligence</h4><p>Detect collusion and abuse in real time at massive scale.</p></a>
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#2dd4bf"></span><h4>Business Intelligence</h4><p>See the relationships your dashboards can't show you.</p></a>
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#60a5fa"></span><h4>Law Enforcement &amp; Cyber</h4><p>Map networks, geospatial and temporal, for faster investigations.</p></a>
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#f472b6"></span><h4>Healthcare &amp; Life Sciences</h4><p>Connect patients, molecules, and evidence into one graph.</p></a>
+      <a class="soln" data-soln href="#contact"><span class="soln__dot" style="--c:#34d399"></span><h4>BigQuery &amp; Spanner</h4><p>The unified graph solution for Google Cloud data.</p></a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__inner reveal-up">
+      <p class="kicker">About Kineviz</p>
+      <h2>We connect humans with complex data — for better outcomes.</h2>
+      <p class="lead">Kineviz is a data-visualization research and development company.
+        Since 2015 we've built tools that let people see, question, and understand
+        the relationships inside their data.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT / CTA -->
+  <section class="cta" id="contact">
+    <canvas class="cta__canvas" id="ctaCanvas" aria-hidden="true"></canvas>
+    <div class="cta__inner">
+      <h2 class="reveal-up">Ready to see your connections?</h2>
+      <p class="lead reveal-up" style="--d:.1s">Bring your data. We'll help you find the story inside it.</p>
+      <div class="cta__btns reveal-up" style="--d:.2s">
+        <a href="https://www.kineviz.com/contact" class="btn btn--lg">Contact us ↗</a>
+        <a href="https://www.kineviz.com/graphxr" class="btn btn--ghost btn--lg">Explore GraphXR</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <span class="nav__word">KINEVIZ</span>
+      <p>Connecting humans with complex data to gain insights for better outcomes.</p>
+    </div>
+    <div class="footer__col"><h5>Products</h5><a href="https://www.kineviz.com/graphxr">GraphXR</a><a href="https://www.kineviz.com/">SeekerXR</a></div>
+    <div class="footer__col"><h5>Solutions</h5><a href="#solutions">Anti-Fraud</a><a href="#solutions">Business Intelligence</a><a href="#solutions">Law Enforcement</a><a href="#solutions">Healthcare</a></div>
+    <div class="footer__col"><h5>Resources</h5><a href="https://www.kineviz.com/use-cases">Use Cases</a><a href="https://www.kineviz.com/documentation">Documentation</a><a href="https://www.kineviz.com/tutorials">Tutorials</a></div>
+    <div class="footer__col"><h5>Company</h5><a href="#about">About</a><a href="https://medium.com/kineviz">Blog</a><a href="https://www.kineviz.com/news">News</a></div>
+  </div>
+  <div class="footer__base">
+    <span>Kineviz © 2015 – 2026</span>
+    <span class="footer__note">A scroll-driven tribute build · matches the spirit of kineviz.com</span>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>

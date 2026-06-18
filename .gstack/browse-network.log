@@ -1,0 +1,8 @@
+[2026-06-18T18:59:07.564Z] GET http://localhost:8099/ → 200 (1ms, 14052B)
+[2026-06-18T18:59:07.569Z] GET https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap → 200 (342ms, 41658B)
+[2026-06-18T18:59:07.569Z] GET http://localhost:8099/styles.css → 200 (4ms, 16337B)
+[2026-06-18T18:59:07.569Z] GET http://localhost:8099/main.js → 200 (5ms, 14356B)
+[2026-06-18T18:59:07.957Z] GET https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2 → pending (?ms, ?B)
+[2026-06-18T18:59:07.957Z] GET https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2 → pending (?ms, ?B)
+[2026-06-18T18:59:07.957Z] GET https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTUGmu0SC55K5gw.woff2 → pending (?ms, ?B)
+[2026-06-18T18:59:08.336Z] GET https://fonts.gstatic.com/s/opensans/v44/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTVOmu0SC55K5gw.woff2 → 200 (82ms, 46884B)
