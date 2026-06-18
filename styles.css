@@ -123,6 +123,8 @@ section{position:relative}
 .premise .word.lit{opacity:1}
 .premise__strong{color:#fff}
 .premise__strong.lit{color:#fff}
+/* key-word highlight — same warm gradient as the pull quote */
+.premise .hl{background:linear-gradient(100deg,var(--gold),var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent}
 
 /* ============================================================
    PRODUCT
