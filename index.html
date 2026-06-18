@@ -38,7 +38,7 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <canvas class="hero__canvas" id="graphCanvas" aria-hidden="true"></canvas>
+    <div class="gl-embed hero__embed" data-gl="scenario-flights-globe" data-gl-top="149" data-gl-eager="1" aria-hidden="true"></div>
     <div class="hero__veil"></div>
     <div class="hero__inner">
       <p class="hero__eyebrow reveal">GraphXR Explorer · Visual graph intelligence</p>
@@ -100,8 +100,11 @@
       <div class="product__viz reveal-up" style="--d:.15s">
         <div class="vizcard">
           <div class="vizcard__bar"><span></span><span></span><span></span></div>
-          <canvas id="miniGraph" class="vizcard__canvas" aria-hidden="true"></canvas>
-          <div class="vizcard__caption">Live force layout · drag-free preview</div>
+          <div class="vizcard__embed">
+            <div class="gl-embed" data-gl="scenario-florentine-style" data-gl-top="131" data-gl-title="Florentine families network"></div>
+            <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-florentine-style" target="_blank" rel="noopener">Open live ↗</a>
+          </div>
+          <div class="vizcard__caption">Florentine families · rendered with @kineviz/gl</div>
         </div>
       </div>
     </div>
@@ -127,7 +130,10 @@
     <!-- Story 1 -->
     <article class="story" id="story-1" data-accent="#8b5cf6">
       <div class="story__visual">
-        <div class="story__stage" data-stage="network"></div>
+        <div class="story__stage">
+          <div class="gl-embed" data-gl="scenario-les-mis-communities" data-gl-top="131" data-gl-title="Community detection network"></div>
+          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-les-mis-communities" target="_blank" rel="noopener">Open live ↗</a>
+        </div>
       </div>
       <div class="story__copy">
         <span class="story__index">01</span>
@@ -144,7 +150,10 @@
     <!-- Story 2 -->
     <article class="story story--alt" id="story-2" data-accent="#2dd4bf">
       <div class="story__visual">
-        <div class="story__stage" data-stage="geo"></div>
+        <div class="story__stage">
+          <div class="gl-embed" data-gl="scenario-london-tube" data-gl-top="149" data-gl-title="Geospatial transport network"></div>
+          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-london-tube" target="_blank" rel="noopener">Open live ↗</a>
+        </div>
       </div>
       <div class="story__copy">
         <span class="story__index">02</span>
@@ -161,7 +170,10 @@
     <!-- Story 3 -->
     <article class="story" id="story-3" data-accent="#fbbf24">
       <div class="story__visual">
-        <div class="story__stage" data-stage="stream"></div>
+        <div class="story__stage">
+          <div class="gl-embed" data-gl="scenario-paysim-fraud" data-gl-top="149" data-gl-title="Money-trail fraud detection"></div>
+          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-paysim-fraud" target="_blank" rel="noopener">Open live ↗</a>
+        </div>
       </div>
       <div class="story__copy">
         <span class="story__index">03</span>
@@ -178,7 +190,10 @@
     <!-- Story 4 -->
     <article class="story story--alt" id="story-4" data-accent="#f472b6">
       <div class="story__visual">
-        <div class="story__stage" data-stage="ring"></div>
+        <div class="story__stage">
+          <div class="gl-embed" data-gl="scenario-les-mis-emphasis" data-gl-top="131" data-gl-title="Focus and context network"></div>
+          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-les-mis-emphasis" target="_blank" rel="noopener">Open live ↗</a>
+        </div>
       </div>
       <div class="story__copy">
         <span class="story__index">04</span>
@@ -231,7 +246,7 @@
 
   <!-- CONTACT / CTA -->
   <section class="cta" id="contact">
-    <canvas class="cta__canvas" id="ctaCanvas" aria-hidden="true"></canvas>
+    <div class="gl-embed cta__embed" data-gl="scenario-cyber-attacks" data-gl-top="149" aria-hidden="true"></div>
     <div class="cta__inner">
       <h2 class="reveal-up">Ready to see your connections?</h2>
       <p class="lead reveal-up" style="--d:.1s">Bring your data. We'll help you find the story inside it.</p>

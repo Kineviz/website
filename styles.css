@@ -91,13 +91,16 @@ section{position:relative}
    HERO
    ============================================================ */
 .hero{
+  position:relative;
   min-height:100svh; display:flex; align-items:center;
   background:radial-gradient(120% 90% at 70% 10%, #14152033 0%, var(--bg) 55%), var(--bg);
   color:#fff; overflow:hidden;
 }
-.hero__canvas{position:absolute; inset:0; width:100%; height:100%; opacity:.95}
-.hero__veil{position:absolute; inset:0;
-  background:radial-gradient(90% 70% at 22% 50%, rgba(10,11,15,.78) 0%, rgba(10,11,15,.25) 55%, transparent 80%);
+.hero__embed{opacity:.92}
+.hero__veil{position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(90% 75% at 20% 50%, rgba(10,11,15,.92) 0%, rgba(10,11,15,.45) 50%, rgba(10,11,15,.15) 78%),
+    linear-gradient(180deg, rgba(10,11,15,.55) 0%, transparent 22%, transparent 72%, rgba(10,11,15,.85) 100%);
   pointer-events:none;}
 .hero__inner{position:relative; z-index:2; max-width:var(--maxw); width:100%; margin:0 auto; padding:7rem clamp(1.2rem,5vw,3rem) 4rem}
 .hero__eyebrow{font-family:var(--font-disp); letter-spacing:.16em; text-transform:uppercase; font-size:.74rem; color:#b9bdcc; margin:0 0 1.4rem}
@@ -141,8 +144,8 @@ section{position:relative}
 .vizcard__bar span:first-child{background:#ff5f57}
 .vizcard__bar span:nth-child(2){background:#febc2e}
 .vizcard__bar span:nth-child(3){background:#28c840}
-.vizcard__canvas{width:100%; height:380px; display:block}
-.vizcard__caption{position:absolute; bottom:0; left:0; right:0; padding:.7rem 1rem; font-size:.78rem; color:#8a8f9e; font-family:var(--font-disp); letter-spacing:.04em; background:linear-gradient(transparent,#0a0b0f)}
+.vizcard__embed{position:relative; height:380px; background:#0b0c13}
+.vizcard__caption{position:absolute; bottom:0; left:0; right:0; padding:.7rem 1rem; font-size:.78rem; color:#8a8f9e; font-family:var(--font-disp); letter-spacing:.04em; background:linear-gradient(transparent,#0a0b0f); pointer-events:none; z-index:3}
 
 /* ============================================================
    STATS
@@ -219,7 +222,9 @@ section{position:relative}
    CTA
    ============================================================ */
 .cta{position:relative; padding:clamp(6rem,14vw,11rem) clamp(1.2rem,5vw,3rem); background:var(--bg); color:#fff; overflow:hidden; text-align:center}
-.cta__canvas{position:absolute; inset:0; width:100%; height:100%; opacity:.6}
+.cta__embed{opacity:.5}
+.cta::after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:radial-gradient(70% 70% at 50% 50%, rgba(10,11,15,.4) 0%, rgba(10,11,15,.82) 75%)}
 .cta__inner{position:relative; z-index:2; max-width:760px; margin:0 auto}
 .cta h2{font-size:clamp(2.2rem,6vw,4rem); line-height:1.05}
 .cta .lead{color:#c2c6d4; margin:1.3rem auto 2.4rem}
@@ -236,6 +241,38 @@ section{position:relative}
 .footer__col a{display:block; font-size:.92rem; color:#9499ab; padding:.28rem 0; transition:color .2s}
 .footer__col a:hover{color:#fff}
 .footer__base{max-width:var(--maxw); margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid #161826; display:flex; justify-content:space-between; gap:1rem; font-size:.82rem; color:#6b7088; flex-wrap:wrap}
+
+/* ============================================================
+   KINEVIZ GL EMBEDS — cropped live @kineviz/gl visualizations
+   ============================================================ */
+.gl-embed{
+  position:absolute; inset:0; overflow:hidden;
+  background:radial-gradient(120% 120% at 50% 28%, #161a2b 0%, #0b0c13 70%);
+}
+/* subtle loading shimmer until the iframe paints */
+.gl-embed::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background:linear-gradient(110deg, transparent 30%, rgba(120,130,190,.07) 50%, transparent 70%);
+  background-size:220% 100%; animation:shimmer 1.8s linear infinite; opacity:1; transition:opacity .6s;
+}
+.gl-embed.is-ready::before{opacity:0}
+@keyframes shimmer{0%{background-position:140% 0}100%{background-position:-140% 0}}
+
+.gl-embed__frame{
+  position:absolute; top:0; left:0; border:0; transform-origin:0 0;
+  pointer-events:none; opacity:0; transition:opacity 1s var(--ease);
+  color-scheme:dark;
+}
+.gl-embed.is-ready .gl-embed__frame{opacity:1}
+
+.gl-embed__open{
+  position:absolute; bottom:12px; right:12px; z-index:4;
+  font:600 .7rem/1 var(--font-disp); letter-spacing:.04em; color:#cdd1e0;
+  background:rgba(10,11,15,.55); border:1px solid rgba(255,255,255,.16);
+  padding:.42rem .8rem; border-radius:999px; backdrop-filter:blur(8px);
+  pointer-events:auto; transition:color .2s, border-color .2s, background .2s;
+}
+.gl-embed__open:hover{color:#fff; border-color:rgba(255,255,255,.45); background:rgba(10,11,15,.8)}
 
 /* ============================================================
    REVEAL utilities
