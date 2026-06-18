@@ -96,7 +96,7 @@ section{position:relative}
   background:radial-gradient(120% 90% at 70% 10%, #14152033 0%, var(--bg) 55%), var(--bg);
   color:#fff; overflow:hidden;
 }
-.hero__embed{opacity:.92}
+.hero__embed{opacity:.62}
 .hero__veil{position:absolute; inset:0; z-index:1;
   background:
     radial-gradient(90% 75% at 20% 50%, rgba(10,11,15,.92) 0%, rgba(10,11,15,.45) 50%, rgba(10,11,15,.15) 78%),
