@@ -75,6 +75,8 @@ section{position:relative}
   color:var(--ink); box-shadow:0 1px 0 var(--line); padding-top:.8rem; padding-bottom:.8rem;
 }
 .nav__brand{display:flex; align-items:center; gap:.55rem}
+.nav__logo{height:30px; width:auto; display:block; transition:filter .35s var(--ease)}
+.nav:not(.is-solid) .nav__logo{filter:brightness(1.35) saturate(1.15) drop-shadow(0 1px 6px rgba(0,0,0,.4))}
 .nav__mark{flex:none}
 .nav__word{font-family:var(--font-disp); font-weight:700; letter-spacing:.16em; font-size:1.05rem}
 .nav__links{display:flex; gap:1.6rem; margin-left:auto; font-size:.92rem; font-weight:500; font-family:var(--font-disp)}
@@ -228,8 +230,8 @@ section{position:relative}
    ============================================================ */
 .footer{background:#070810; color:#aeb2c2; padding:clamp(3rem,7vw,5rem) clamp(1.2rem,5vw,3rem) 2rem}
 .footer__grid{max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr repeat(4,1fr); gap:2rem}
-.footer__brand .nav__word{color:#fff; font-size:1.2rem}
-.footer__brand p{margin:1rem 0 0; font-size:.92rem; max-width:30ch; color:#7d8195}
+.footer__logo{height:36px; width:auto; display:block; filter:brightness(1.3) saturate(1.1)}
+.footer__brand p{margin:1.1rem 0 0; font-size:.92rem; max-width:30ch; color:#7d8195}
 .footer__col h5{font-family:var(--font-disp); color:#fff; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; margin:0 0 1rem}
 .footer__col a{display:block; font-size:.92rem; color:#9499ab; padding:.28rem 0; transition:color .2s}
 .footer__col a:hover{color:#fff}
