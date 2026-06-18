@@ -173,12 +173,18 @@ section{position:relative}
 .story--alt > *{direction:ltr}
 .story__visual{position:sticky; top:14vh; height:72vh; min-height:380px; display:flex; align-items:center; justify-content:center}
 .story__stage{
-  position:relative; width:min(100%, 70vh); aspect-ratio:1; height:auto; margin:0 auto;
-  border-radius:20px; overflow:hidden;
-  background:radial-gradient(120% 120% at 50% 30%, #161826 0%, #0c0d14 70%);
-  border:1px solid #1b1e2c;
+  position:relative; width:min(100%, 64vh); margin:0 auto;
+  border-radius:16px; overflow:hidden;
+  background:var(--bg);
+  border:1px solid #1c1f2b;
   box-shadow:0 40px 90px -40px rgba(0,0,0,.7);
 }
+.story__bar{display:flex; gap:.5rem; padding:.8rem 1rem; background:#11131b; border-bottom:1px solid #1c1f2b}
+.story__bar span{width:11px; height:11px; border-radius:50%; background:#2a2e3c}
+.story__bar span:first-child{background:#ff5f57}
+.story__bar span:nth-child(2){background:#febc2e}
+.story__bar span:nth-child(3){background:#28c840}
+.story__body{position:relative; aspect-ratio:1; overflow:hidden; background:radial-gradient(120% 120% at 50% 30%, #161826 0%, #0c0d14 70%)}
 .story__copy{max-width:46ch}
 .story__index{font-family:var(--font-disp); font-weight:700; font-size:3.4rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px #3a3e52; display:block; margin-bottom:1rem}
 .story__tag{font-family:var(--font-disp); text-transform:uppercase; letter-spacing:.16em; font-size:.72rem; color:var(--gold); margin:0 0 .8rem}
@@ -265,6 +271,12 @@ section{position:relative}
   color-scheme:dark;
 }
 .gl-embed.is-ready .gl-embed__frame{opacity:1}
+
+/* Framed previews (story windows + product card) are interactive like the
+   originals — drag to orbit, scroll to zoom. Hero/CTA backgrounds stay
+   pointer-events:none so the page still scrolls past them. */
+.story__body .gl-embed__frame,
+.vizcard__embed .gl-embed__frame{pointer-events:auto}
 
 .gl-embed__open{
   position:absolute; bottom:12px; right:12px; z-index:4;
