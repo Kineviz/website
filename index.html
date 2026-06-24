@@ -24,16 +24,58 @@
 
 <!-- Navigation -->
 <header class="nav" id="nav">
-  <a class="nav__brand" href="#top" aria-label="Kineviz home">
+  <a class="nav__brand" href="index.html" aria-label="Kineviz home">
     <img class="nav__logo" src="assets/kineviz-logo.webp" width="150" height="34" alt="Kineviz" />
   </a>
-  <nav class="nav__links" aria-label="Primary">
-    <a href="#product">GraphXR</a>
-    <a href="#stories">Case Studies</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#about">Company</a>
+  <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+  <nav class="nav__menu" id="navMenu" aria-label="Primary">
+    <ul class="nav__list">
+        <li class="nav__item nav__item--has">
+          <button class="nav__link" aria-expanded="false" aria-haspopup="true">The Kineviz Platform <span class="nav__caret" aria-hidden="true">▾</span></button>
+          <div class="nav__panel" role="menu">
+            <a href="platform.html">Overview</a>
+            <a href="community.html">Kineviz Community</a>
+            <a href="enterprise.html">Kineviz Enterprise</a>
+            <a href="agent.html">Kineviz Agent</a>
+            <a href="download.html">Download Kineviz Desktop</a>
+          </div>
+        </li>
+        <li class="nav__item nav__item--has">
+          <button class="nav__link" aria-expanded="false" aria-haspopup="true">Solutions <span class="nav__caret" aria-hidden="true">▾</span></button>
+          <div class="nav__panel" role="menu">
+            <a href="case-studies.html">Case Studies</a>
+            <a href="gaming.html">Gaming</a>
+            <a href="anti-fraud.html">Anti-fraud</a>
+            <a href="law-enforcement.html">Law Enforcement</a>
+            <a href="cybersecurity.html">Cybersecurity</a>
+            <a href="healthcare.html">Healthcare</a>
+            <a href="business-intelligence.html">Business Intelligence</a>
+            <a href="bigquery-graph-visualization.html">BigQuery Graph Visualization</a>
+            <a href="seekerxr-osint.html">SeekerXR OSINT</a>
+          </div>
+        </li>
+        <li class="nav__item nav__item--has">
+          <button class="nav__link" aria-expanded="false" aria-haspopup="true">Company <span class="nav__caret" aria-hidden="true">▾</span></button>
+          <div class="nav__panel" role="menu">
+            <a href="about.html">About</a>
+            <a href="partners.html">Partners</a>
+            <a href="customers.html">Customers</a>
+            <a href="news.html">News & Events</a>
+          </div>
+        </li>
+        <li class="nav__item nav__item--has">
+          <button class="nav__link" aria-expanded="false" aria-haspopup="true">Resources <span class="nav__caret" aria-hidden="true">▾</span></button>
+          <div class="nav__panel" role="menu">
+            <a href="sandboxes.html">Sandboxes</a>
+            <a href="documentation.html">Documentation</a>
+            <a href="blog.html">Blog</a>
+          </div>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="pricing.html">Pricing</a></li>
+        <li class="nav__item"><a class="nav__link" href="contact.html">Contact</a></li>
+    </ul>
   </nav>
-  <a href="#contact" class="btn btn--sm">Try it out</a>
+  <a href="contact.html" class="btn btn--sm nav__cta">Try it out</a>
 </header>
 
 <main id="top">
@@ -279,14 +321,14 @@
       <img class="footer__logo" src="assets/kineviz-logo.webp" width="170" height="38" alt="Kineviz" />
       <p>Connecting humans with complex data to gain insights for better outcomes.</p>
     </div>
-    <div class="footer__col"><h5>Products</h5><a href="https://www.kineviz.com/graphxr">GraphXR</a><a href="https://www.kineviz.com/">SeekerXR</a></div>
-    <div class="footer__col"><h5>Solutions</h5><a href="#solutions">Anti-Fraud</a><a href="#solutions">Business Intelligence</a><a href="#solutions">Law Enforcement</a><a href="#solutions">Healthcare</a></div>
-    <div class="footer__col"><h5>Resources</h5><a href="https://www.kineviz.com/use-cases">Use Cases</a><a href="https://www.kineviz.com/documentation">Documentation</a><a href="https://www.kineviz.com/tutorials">Tutorials</a></div>
-    <div class="footer__col"><h5>Company</h5><a href="#about">About</a><a href="https://medium.com/kineviz">Blog</a><a href="https://www.kineviz.com/news">News</a></div>
+    <div class="footer__col"><h5>Platform</h5><a href="platform.html">Overview</a><a href="community.html">Kineviz Community</a><a href="enterprise.html">Kineviz Enterprise</a><a href="agent.html">Kineviz Agent</a><a href="download.html">Download Kineviz Desktop</a></div>
+    <div class="footer__col"><h5>Solutions</h5><a href="case-studies.html">Case Studies</a><a href="gaming.html">Gaming</a><a href="anti-fraud.html">Anti-fraud</a><a href="law-enforcement.html">Law Enforcement</a><a href="cybersecurity.html">Cybersecurity</a><a href="healthcare.html">Healthcare</a></div>
+    <div class="footer__col"><h5>Company</h5><a href="about.html">About</a><a href="partners.html">Partners</a><a href="customers.html">Customers</a><a href="news.html">News & Events</a></div>
+    <div class="footer__col"><h5>Resources</h5><a href="sandboxes.html">Sandboxes</a><a href="documentation.html">Documentation</a><a href="blog.html">Blog</a></div>
   </div>
   <div class="footer__base">
     <span>Kineviz © 2015 – 2026</span>
-    <span class="footer__note">A scroll-driven tribute build · matches the spirit of kineviz.com</span>
+    <nav class="footer__links" aria-label="Footer"><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
   </div>
 </footer>
 

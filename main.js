@@ -21,6 +21,60 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- 1b. Nav: dropdowns + mobile drawer ---------- */
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  const dropdownItems = [...document.querySelectorAll('.nav__item--has')];
+  const isMobile = () => window.matchMedia('(max-width:900px)').matches;
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-menu-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      if (!open) closeAllDropdowns();
+    });
+  }
+  function closeAllDropdowns(except) {
+    dropdownItems.forEach((it) => {
+      if (it === except) return;
+      it.classList.remove('is-open');
+      const b = it.querySelector('.nav__link');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  dropdownItems.forEach((item) => {
+    const btn = item.querySelector('.nav__link');
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const open = !item.classList.contains('is-open');
+      closeAllDropdowns(open ? item : null);
+      item.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  // close on outside click / Escape
+  document.addEventListener('click', (e) => {
+    if (nav && !nav.contains(e.target)) { closeAllDropdowns(); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllDropdowns();
+      if (nav && nav.classList.contains('is-menu-open')) {
+        nav.classList.remove('is-menu-open');
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
+  // reset menu state when crossing the mobile/desktop boundary
+  window.addEventListener('resize', () => {
+    if (!isMobile() && nav) {
+      nav.classList.remove('is-menu-open');
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      closeAllDropdowns();
+    }
+  }, { passive: true });
+
   /* ---------- 2. Generic reveal-on-enter ---------- */
   const revealIO = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
