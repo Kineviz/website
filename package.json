@@ -1,0 +1,23 @@
+{
+  "name": "kineviz-website-gl",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local build for the @kineviz/gl React scenes embedded in the Kineviz website",
+  "scripts": {
+    "build:gl": "node esbuild.gl.mjs",
+    "watch:gl": "node esbuild.gl.mjs --watch"
+  },
+  "dependencies": {
+    "@kineviz/gl": "^0.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "~0.121.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "esbuild": "^0.23.0",
+    "playwright-core": "^1.61.1",
+    "typescript": "^5.4.0"
+  }
+}

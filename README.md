@@ -21,8 +21,28 @@ from law enforcement, gaming integrity, and fraud investigation.
 
 ## Tech
 
-Plain HTML + CSS + vanilla JS. **No build step, no dependencies.** Fonts via Google
-Fonts. That keeps GitHub Pages deployment trivial.
+Static HTML + CSS + vanilla JS for the pages. The live graph visualizations are
+real [`@kineviz/gl`](https://www.npmjs.com/package/@kineviz/gl) `GraphCanvas` React
+scenes (`gl-src/`), bundled with esbuild into `assets/gl/bundle.js`. The bundle is
+**built locally and committed**, so GitHub Pages still just serves static files —
+no build or npm token needed in CI.
+
+## Live graph scenes (`gl-src/`)
+
+Each embed on the home page mounts a React scene from `gl-src/scenes/` into a
+`.gl-mount` element (see `gl-src/index.tsx`): a cyber-threat globe, a real flight
+network, Louvain communities, focus-&-context, and the PaySim fraud investigation.
+Runtime data lives in `assets/data/`.
+
+`@kineviz/gl` is a **private** package — `npm install` needs npm auth for the
+`@kineviz` org (`.npmrc` scopes it to the npm registry; the token stays in
+`~/.npmrc`, never committed).
+
+```bash
+npm install          # @kineviz/gl + react + three (private; needs auth)
+npm run build:gl     # rebuild assets/gl/bundle.js after editing gl-src/
+# node scripts/shot.mjs <url> <out.png>   # headless WebGL screenshot (SwiftShader)
+```
 
 ## Local preview
 

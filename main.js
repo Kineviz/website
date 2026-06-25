@@ -122,84 +122,9 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach((el) => statIO.observe(el));
 
-  /* ============================================================
-     5. @kineviz/gl live embeds
-     Each example page is a side-by-side code playground; the live
-     canvas is the right-hand pane (≈x700,w700 of a 1400-wide layout,
-     top offset varies with title height). We mount the page in an
-     iframe and crop+scale to show only that pane, covering the box.
-     Iframes are mounted lazily on approach and torn down when far
-     offscreen so we never hold more than a couple of WebGL contexts.
-     ============================================================ */
-  const GL_BASE = 'https://kineviz-gl.vercel.app/examples/';
-  const NATIVE_W = 1400, NATIVE_H = 900, PANE_X = 700, PANE_W = 700;
-
-  function fitCover(wrap, iframe, top) {
-    const paneH = NATIVE_H - top;
-    const Wd = wrap.clientWidth, Hd = wrap.clientHeight;
-    if (!Wd || !Hd) return;
-    const S = Math.max(Wd / PANE_W, Hd / paneH);
-    const px = (Wd - PANE_W * S) / 2;   // center the pane horizontally
-    const py = (Hd - paneH * S) / 2;    // center the pane vertically
-    iframe.style.width = NATIVE_W + 'px';
-    iframe.style.height = NATIVE_H + 'px';
-    iframe.style.transform =
-      `translate(${(px - PANE_X * S).toFixed(1)}px, ${(py - top * S).toFixed(1)}px) scale(${S.toFixed(4)})`;
-  }
-
-  function mountEmbed(wrap) {
-    if (wrap._iframe) return;
-    const slug = wrap.dataset.gl;
-    if (!slug) return;
-    const top = parseInt(wrap.dataset.glTop || '149', 10);
-    const iframe = document.createElement('iframe');
-    iframe.className = 'gl-embed__frame';
-    iframe.src = GL_BASE + slug;
-    iframe.loading = 'lazy';
-    iframe.title = wrap.dataset.glTitle || 'Live Kineviz GL visualization';
-    iframe.setAttribute('scrolling', 'no');
-    iframe.setAttribute('tabindex', '-1');
-    iframe.setAttribute('aria-hidden', 'true');
-    iframe.allow = 'autoplay; fullscreen';
-    iframe.addEventListener('load', () => {
-      wrap.classList.add('is-ready');
-      fitCover(wrap, iframe, top);
-      // re-fit a few times as the WebGL app lays out / fits its camera
-      setTimeout(() => fitCover(wrap, iframe, top), 600);
-      setTimeout(() => fitCover(wrap, iframe, top), 1800);
-    });
-    wrap.appendChild(iframe);
-    wrap._iframe = iframe;
-    wrap._top = top;
-    fitCover(wrap, iframe, top);
-    if (!wrap._ro) {
-      wrap._ro = new ResizeObserver(() => { if (wrap._iframe) fitCover(wrap, wrap._iframe, wrap._top); });
-      wrap._ro.observe(wrap);
-    }
-  }
-
-  function unmountEmbed(wrap) {
-    if (!wrap._iframe) return;
-    wrap._iframe.remove();
-    wrap._iframe = null;
-    wrap.classList.remove('is-ready');
-  }
-
-  const embeds = [...document.querySelectorAll('.gl-embed')];
-  if (embeds.length) {
-    const embedIO = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { e.isIntersecting ? mountEmbed(e.target) : unmountEmbed(e.target); });
-    }, { rootMargin: '400px 0px 400px 0px', threshold: 0 });
-
-    embeds.forEach((w) => {
-      if (w.dataset.glEager) mountEmbed(w);   // hero loads right away
-      embedIO.observe(w);
-    });
-
-    window.addEventListener('resize', () => {
-      embeds.forEach((w) => { if (w._iframe) fitCover(w, w._iframe, w._top); });
-    }, { passive: true });
-  }
+  /* ---------- 5. Live @kineviz/gl scenes ----------
+     The interactive visualizations are real GraphCanvas React components
+     mounted by assets/gl/bundle.js (built from gl-src/). See gl-src/index.tsx. */
 
   /* ---------- 6. Smooth-scroll for in-page anchors (respect reduce) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach((a) => {

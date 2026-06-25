@@ -186,7 +186,15 @@ section{position:relative}
   background:radial-gradient(120% 90% at 70% 10%, #14152033 0%, var(--bg) 55%), var(--bg);
   color:#fff; overflow:hidden;
 }
-.hero__embed{opacity:.62}
+.hero__embed{opacity:.62; pointer-events:none}
+/* React-mounted @kineviz/gl scenes — fill their positioned parent */
+.gl-mount{position:absolute; inset:0}
+.gl-mount canvas{display:block}
+/* background scenes (hero, CTA): ambient only — no canvas UI, no scroll-trap */
+.hero__embed,.cta__embed{pointer-events:none}
+/* hide the GraphCanvas 2D/3D pitch-toggle button on all embeds (keeps any
+   scene HUD buttons, e.g. PaySim's Replay) */
+.gl-mount button[title*="Switch to"]{display:none !important}
 .hero__veil{position:absolute; inset:0; z-index:1;
   background:
     radial-gradient(90% 75% at 20% 50%, rgba(10,11,15,.92) 0%, rgba(10,11,15,.45) 50%, rgba(10,11,15,.15) 78%),
@@ -342,42 +350,14 @@ section{position:relative}
 .footer__base{max-width:var(--maxw); margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid #161826; display:flex; justify-content:space-between; gap:1rem; font-size:.82rem; color:#6b7088; flex-wrap:wrap}
 
 /* ============================================================
-   KINEVIZ GL EMBEDS — cropped live @kineviz/gl visualizations
+   KINEVIZ GL SCENES — live @kineviz/gl GraphCanvas (gl-src/, bundle.js)
    ============================================================ */
-.gl-embed{
-  position:absolute; inset:0; overflow:hidden;
+/* Framed scenes (story windows + product card) get a dark loading backdrop so
+   the box looks intentional before the canvas paints. */
+.story__body .gl-mount,
+.vizcard__embed .gl-mount{
   background:radial-gradient(120% 120% at 50% 28%, #161a2b 0%, #0b0c13 70%);
 }
-/* subtle loading shimmer until the iframe paints */
-.gl-embed::before{
-  content:""; position:absolute; inset:0; z-index:0;
-  background:linear-gradient(110deg, transparent 30%, rgba(120,130,190,.07) 50%, transparent 70%);
-  background-size:220% 100%; animation:shimmer 1.8s linear infinite; opacity:1; transition:opacity .6s;
-}
-.gl-embed.is-ready::before{opacity:0}
-@keyframes shimmer{0%{background-position:140% 0}100%{background-position:-140% 0}}
-
-.gl-embed__frame{
-  position:absolute; top:0; left:0; border:0; transform-origin:0 0;
-  pointer-events:none; opacity:0; transition:opacity 1s var(--ease);
-  color-scheme:dark;
-}
-.gl-embed.is-ready .gl-embed__frame{opacity:1}
-
-/* Framed previews (story windows + product card) are interactive like the
-   originals — drag to orbit, scroll to zoom. Hero/CTA backgrounds stay
-   pointer-events:none so the page still scrolls past them. */
-.story__body .gl-embed__frame,
-.vizcard__embed .gl-embed__frame{pointer-events:auto}
-
-.gl-embed__open{
-  position:absolute; bottom:12px; right:12px; z-index:4;
-  font:600 .7rem/1 var(--font-disp); letter-spacing:.04em; color:#cdd1e0;
-  background:rgba(10,11,15,.55); border:1px solid rgba(255,255,255,.16);
-  padding:.42rem .8rem; border-radius:999px; backdrop-filter:blur(8px);
-  pointer-events:auto; transition:color .2s, border-color .2s, background .2s;
-}
-.gl-embed__open:hover{color:#fff; border-color:rgba(255,255,255,.45); background:rgba(10,11,15,.8)}
 
 /* ============================================================
    REVEAL utilities

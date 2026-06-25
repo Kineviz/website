@@ -1,0 +1,10 @@
+import { chromium } from 'playwright-core';
+const EXEC='/Users/dienert/Library/Caches/ms-playwright/chromium-1208/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing';
+const [,,url,out,sel,wait]=process.argv;
+const b=await chromium.launch({executablePath:EXEC,headless:true,args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--ignore-gpu-blocklist']});
+const p=await b.newPage({viewport:{width:1280,height:800}});
+await p.goto(url,{waitUntil:'load'});
+await p.evaluate((s)=>document.querySelector(s)?.scrollIntoView({block:'center'}), sel);
+await p.waitForTimeout(parseInt(wait||'8000'));
+await p.screenshot({path:out, timeout:60000});
+await b.close(); console.log('saved',out);

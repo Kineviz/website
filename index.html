@@ -82,7 +82,7 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="gl-embed hero__embed" data-gl="scenario-cyber-attacks" data-gl-top="149" data-gl-eager="1" aria-hidden="true"></div>
+    <div class="gl-mount hero__embed" data-scene="cyber" data-eager="1" aria-hidden="true"></div>
     <div class="hero__veil"></div>
     <div class="hero__inner">
       <p class="hero__eyebrow reveal">GraphXR Explorer · Visual graph intelligence</p>
@@ -145,10 +145,8 @@
         <div class="vizcard">
           <div class="vizcard__bar"><span></span><span></span><span></span></div>
           <div class="vizcard__embed">
-            <div class="gl-embed" data-gl="scenario-flights-globe" data-gl-top="149" data-gl-title="Global flight network on a 3D globe"></div>
-            <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-flights-globe" target="_blank" rel="noopener">Open live ↗</a>
+            <div class="gl-mount" data-scene="flights"></div>
           </div>
-          <div class="vizcard__caption">Live global flight network · rendered with @kineviz/gl</div>
         </div>
       </div>
     </div>
@@ -177,8 +175,7 @@
         <div class="story__stage">
           <div class="story__bar"><span></span><span></span><span></span></div>
           <div class="story__body">
-            <div class="gl-embed" data-gl="scenario-les-mis-communities" data-gl-top="131" data-gl-title="Community detection network"></div>
-          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-les-mis-communities" target="_blank" rel="noopener">Open live ↗</a>
+            <div class="gl-mount" data-scene="communities" data-flat="1"></div>
           </div>
         </div>
       </div>
@@ -200,8 +197,7 @@
         <div class="story__stage">
           <div class="story__bar"><span></span><span></span><span></span></div>
           <div class="story__body">
-            <div class="gl-embed" data-gl="scenario-paysim-fraud" data-gl-top="149" data-gl-title="Money-trail fraud detection"></div>
-          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-paysim-fraud" target="_blank" rel="noopener">Open live ↗</a>
+            <div class="gl-mount" data-scene="paysim" data-flat="1"></div>
           </div>
         </div>
       </div>
@@ -223,8 +219,7 @@
         <div class="story__stage">
           <div class="story__bar"><span></span><span></span><span></span></div>
           <div class="story__body">
-            <div class="gl-embed" data-gl="scenario-cyber-attacks" data-gl-top="149" data-gl-title="Cyber threat map on a 3D globe"></div>
-          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-cyber-attacks" target="_blank" rel="noopener">Open live ↗</a>
+            <div class="gl-mount" data-scene="cyber"></div>
           </div>
         </div>
       </div>
@@ -246,8 +241,7 @@
         <div class="story__stage">
           <div class="story__bar"><span></span><span></span><span></span></div>
           <div class="story__body">
-            <div class="gl-embed" data-gl="scenario-les-mis-emphasis" data-gl-top="131" data-gl-title="Focus and context network"></div>
-          <a class="gl-embed__open" href="https://kineviz-gl.vercel.app/examples/scenario-les-mis-emphasis" target="_blank" rel="noopener">Open live ↗</a>
+            <div class="gl-mount" data-scene="emphasis" data-flat="1"></div>
           </div>
         </div>
       </div>
@@ -302,7 +296,7 @@
 
   <!-- CONTACT / CTA -->
   <section class="cta" id="contact">
-    <div class="gl-embed cta__embed" data-gl="scenario-paysim-fraud" data-gl-top="149" aria-hidden="true"></div>
+    <div class="gl-mount cta__embed" data-scene="paysim" data-flat="1" aria-hidden="true"></div>
     <div class="cta__inner">
       <h2 class="reveal-up">Ready to see your connections?</h2>
       <p class="lead reveal-up" style="--d:.1s">Bring your data. We'll help you find the story inside it.</p>
@@ -333,5 +327,6 @@
 </footer>
 
 <script src="main.js" defer></script>
+<script src="assets/gl/bundle.js" defer></script>
 </body>
 </html>
