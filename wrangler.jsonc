@@ -1,0 +1,23 @@
+{
+  // PRODUCTION — the launch candidate that will get the kineviz.com domain.
+  // Deploy with:  npx wrangler deploy
+  "name": "kineviz-site",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./kineviz-com-dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "env": {
+    // DEVELOPMENT — scratch copy to iterate on. Separate Worker + URL.
+    // Deploy with:  npx wrangler deploy --env dev
+    "dev": {
+      "name": "kineviz-site-dev",
+      "assets": {
+        "directory": "./kineviz-com-dev",
+        "html_handling": "auto-trailing-slash",
+        "not_found_handling": "none"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+$ORIGIN kineviz.com.
+$TTL 3600
+
+; ---- GraphXR app servers (A records) ----
+graphxr                       IN A     34.219.111.177
+graphxr-manager               IN A     34.219.111.177
+graphxr-custom-rocky          IN A     178.156.148.252
+next.graphxr                  IN A     172.96.231.63
+graphxrvr                     IN A     172.96.231.63
+graphxrnext                   IN A     172.96.231.63
+vr.graphxr                    IN A     172.96.231.63
+graphxrdev                    IN A     172.96.231.63
+dev.graphxr                   IN A     172.96.231.63
+v2.graphxr                    IN A     172.96.231.63
+infinity.graphxr              IN A     54.184.211.250
+demo.graphxr                  IN A     198.181.42.141
+alt.graphxr                   IN A     198.181.37.101
+staging.graphxr               IN A     198.181.37.101
+harod.graphxr                 IN A     18.130.223.247
+iaca-graphxr                  IN A     54.245.179.106
+kgc2026.graphxr               IN A     91.99.211.170
+
+; ---- Other A records ----
+ip2location                   IN A     34.219.111.177
+eutraining                    IN A     18.169.196.213
+eu                            IN A     18.169.196.213
+staging.cloud                 IN A     178.105.77.254
+satisfy-gist-buckley-lavatory IN A     5.78.224.159
+; cloud (5.78.216.84) already exists in Cloudflare — not re-added
+
+; ---- CNAMEs ----
+helpcenter                    IN CNAME kineviz.github.io.
+staging-helpcenter            IN CNAME kineviz.github.io.
+authkit                       IN CNAME cname.workos-dns.com.
+gaming                        IN CNAME ext-sq.squarespace.com.
+www.gaming                    IN CNAME ext-cust.squarespace.com.
+em3718                        IN CNAME u36670648.wl149.sendgrid.net.
+
+; ---- Email auth / verification CNAMEs (confirmed) ----
+wos._domainkey                IN CNAME wos.domainkey.u36670648.wl149.sendgrid.net.
+wos2._domainkey               IN CNAME wos2.domainkey.u36670648.wl149.sendgrid.net.
+squarespace._domainkey        IN CNAME squarespace-domainkey.squarespace-mail.com.
+xcadydh98w6nbj8zlyy9          IN CNAME verify.squarespace.com.
